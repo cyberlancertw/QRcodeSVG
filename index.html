@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free QR code generator, for download as SVG vector file. You can customize color of modules or background, customize style of modules and finder pattern, and upload your own logo. 免費的 QR code 產生器，提供 SVG 向量圖片的下載，可自訂格子與背景的顏色，自訂格子與標記的樣式，上傳自己的圖示。">
+    <title>SVG QR code generator</title>
+    <link rel="stylesheet" href="./site.css" />
+</head>
+<body>
+    <div id="divContainer">
+        <div id="divShow">
+            <svg id="svgShow" width="250" height="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" viewBox="0 0 3000 3000"></svg>
+        </div>
+        <div id="divFunction">
+            <div>
+                <select id="selLanguage"></select>
+            </div>
+            <div>
+                <button id="btnDownload"></button>
+            </div>
+        </div>
+        <div id="tabList">
+            <ul>
+                <li id="liEncode"></li>
+                <li id="liDesign"></li>
+                <li id="liLogo"></li>
+            </ul>
+        </div>
+        <div id="tabEncode">
+            <div>
+                <textarea id="txtInput" rows="3" autofocus>https://www.qrcode.com/</textarea>
+            </div>
+            <div id="divMini">
+                <input id="chkMini" type="checkbox" class="bigcheck" /> <label id="lblMini" for="chkMini"></label>
+            </div>
+            <div id="divEncode">
+                <div>
+                    <div class="block">
+                        <p>
+                            <label id="lblVersion" for="selVersion"></label>
+                        </p>
+                        <p>
+                            <select id="selVersion" class="full"><option value="-1"></option></select>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblMask" for="selMask"></label>
+                        </p>
+                        <p>
+                            <select id="selMask" class="full">
+                                <option value="-1"></option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="block">
+                        <p>
+                            <label id="lblErrorCorrectLevel" for="selErrorCorrectLevel"></label>
+                        </p>
+                        <p>
+                            <select id="selErrorCorrectLevel" class="full">
+                                <option value="1">L (7%)</option>
+                                <option value="0">M (15%)</option>
+                                <option value="3">Q (25%)</option>
+                                <option value="2">H (30%)</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblUrlEncode" for="chkUrlEncode"></label>
+                        </p>
+                        <p>
+                            <input id="chkUrlEncode" type="checkbox" class="bigcheck" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <fieldset id="setInfo">
+                    <legend id="lgdInfo"></legend>
+                    <div>
+                        <div><span id="ifoCharacterLength"></span><span id="spnCharacterLength">23</span></div>
+                        <div><span id="ifoEncodingMode"></span><span id="spnEncodingMode">Byte</span></div>
+                    </div>
+                    <div>
+                        <div><span id="ifoErrorCorrectLevel">Error Correct Level</span><span id="spnErrorCorrectLevel">L</span></div>
+                        <div><span id="ifoVersion">Version</span><span id="spnVersion">2</span></div>
+                    </div>
+                    <div>
+                        <div><span id="ifoDataCodewordNumber"></span><span id="spnDataCodewords">28</span></div>
+                        <div><span id="ifoErrorCorrectCodewordNumber"></span><span id="spnErrorCorrectCodewords">16</span></div>
+                    </div>
+                    <div>
+                        <div><span id="ifoMaskIndex"></span><span id="spnMaskIndex">2</span></div>
+                        <div><span id="ifoPenaltyScore"></span><span id="spnPenaltyScore">415</span></div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div id="tabDesign">
+            <div>
+                <div id="divFg">
+                    <div>
+                        <label></label>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblFgColor" for="iptFgColor">顏色</label>
+                        </p>
+                        <div class="color">
+                            <input id="iptFgColorHex" type="text" maxlength="6"/>
+                            <input id="iptFgColor" type="color" />
+                        </div>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblRotation" for="selRotation"></label>
+                        </p>
+                        <p>
+                            <select id="selRotation" class="full">
+                                <option value="0"></option>
+                                <option value="45"></option>
+                                <option value="-135"></option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblFinderPatternType" for="selFinderPatternType"></label>
+                        </p>
+                        <p>
+                            <select id="selFinderPatternType" class="full">
+                                <option value="normal"></option>
+                                <option value="angle_rounded"></option>
+                                <option value="out_rounded"></option>
+                                <option value="out_in_rounded"></option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblModuleStyle" for="selModuleStyle"></label>
+                        </p>
+                        <p>
+                            <select id="selModuleStyle" class="full">
+                                <option value="rectangle"></option>
+                                <option value="disc"></option>
+                                <option value="dot"></option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <div id="divBg">
+                    <input id="chkBackground" type="checkbox" class="bigcheck" /><label for="chkBackground"></label>
+                    <div>
+                        <p>
+                            <label id="lblBgColor" for="iptBgColor">顏色</label>
+                        </p>
+                        <div class="color">
+                            <input id="iptBgColorHex" type="text" maxlength="6"/>
+                            <input id="iptBgColor" type="color" />
+                        </div>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblBgRotate" for="chkBgRotate"></label>
+                        </p>
+                        <p>
+                            <input id="chkBgRotate" type="checkbox" class="bigcheck" />
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblPadding" for="selPadding"></label>
+                        </p>
+                        <p>
+                            <select id="selPadding" class="full">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <label id="lblBgRadius" for="chkBgRadius"></label>
+                        </p>
+                        <p>
+                            <input id="chkBgRadius" type="checkbox" class="bigcheck" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tabLogo">
+            <div id="divLogo">
+                <div>
+                    <div id="divUpload">
+                        <input id="chkLogo" type="checkbox" class="bigcheck" />
+                        <label id="lblLogo" for="chkLogo"></label>
+                    </div>
+                    <div>
+                        <input id="iptLogo" type="file" accept="image/svg+xml"/>
+                    </div>
+                </div>
+                <div>
+                    <svg id="svgLogo" width="50" height="50" viewBox="0 0 300 300"></svg>
+                </div>
+            </div>
+            <div id="divLogoList"></div>
+        </div>
+        <div id="divMessage"><span></span></div>
+        <div class="hidden">
+            <a id="aDownload" href="" download=""></a>
+        </div>
+        
+        <script>
+            var timeStart, timeEnd;
+            timeStart = performance.timeOrigin + performance.now();
+        </script>
+        <script src="./qrcode.js?v=20240728"></script>
+        <script src="./lang.js?v=20240728"></script>
+        <script src="./logo.js?v=20240728"></script>
+        <script src="./function.js?v=20240728"></script>
+        <script>
+            timeEnd = GetNow();
+            console.log('初始化花費：', timeEnd - timeStart, '毫秒');
+
+
+        </script>
+    </div>
+</body>
+</html>
